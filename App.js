@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
+import { setNavigator } from "./src/navigationRef";
 import AccountScreen from "./src/screens/AccountScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
@@ -32,7 +33,7 @@ const App = createAppContainer(switchNavigator);
 export default () => {
   return (
     <AuthProvider>
-      <App />
+      <App ref={(navigator) => setNavigator(navigator)} />
     </AuthProvider>
   );
 };
